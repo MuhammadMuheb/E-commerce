@@ -50,7 +50,7 @@ export default function HomeSidebarCategories() {
         <div className="main-banner">
           <div className="banner-content">
             <img
-              src={`/images/${currentSlide.logo}`}
+              src={`${process.env.PUBLIC_URL}/images/${currentSlide.logo}`}
               alt="Logo"
               className="apple-logo"
             />
@@ -64,7 +64,7 @@ export default function HomeSidebarCategories() {
           </div>
 
           <img
-            src={`/images/${currentSlide.image}`}
+            src={`${process.env.PUBLIC_URL}/images/${currentSlide.image}`}
             alt={currentSlide.title}
             className="banner-image"
             onClick={() =>

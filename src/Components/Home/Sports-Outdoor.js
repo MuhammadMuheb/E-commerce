@@ -42,7 +42,7 @@ export default function SportsOutdoor() {
           <div className="product-grid">
             {sportsoutdoor.map((product) => (
               <div key={product.id} className="product-card">
-                <img src={`/images/${product.image}` || ""} alt={product.title} className="product-image"
+                <img src={`${process.env.PUBLIC_URL}/images/${product.image}`} alt={product.title} className="product-image"
                  onClick={() =>
                   navigate(`/product/${product.id}`, { state: { product: product } })
                 }

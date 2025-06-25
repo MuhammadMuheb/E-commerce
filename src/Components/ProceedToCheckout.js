@@ -44,7 +44,7 @@ export default function CheckoutPage() {
           <ul>
             {cartData.items.map((item, index) => (
               <li key={index} className=" order-item">
-                <span className="orderitemimg"><img src={`/images/${item.image}` || ""} alt={item.title}/></span>
+                <span className="orderitemimg"><img src={`${process.env.PUBLIC_URL}/images/${item.image}` || ""} alt={item.title}/></span>
                 <span className="orderitemtitle">{item.title}</span>
                 <span className="orderitemprice">${(parseFloat(item.price) * item.quantity).toFixed(2)}</span>
               </li>

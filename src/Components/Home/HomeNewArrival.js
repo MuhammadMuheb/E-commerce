@@ -25,7 +25,7 @@ export default function NewArrival() {
         {newarrival.map((item) => (
           <div key={item.id} className={`NewArrival-Card ${item.size}`}>
             <img 
-            src={`/images/${item.image}` || ""} 
+            src={`${process.env.PUBLIC_URL}/images/${item.image}` || ""} 
             alt={item.title}  
             onClick={() =>
               navigate(`/product/${item.id}`, {

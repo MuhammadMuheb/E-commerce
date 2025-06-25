@@ -20,7 +20,7 @@ export default function AboutMeetOurTeam() {
   // TeamMember Component
   const TeamMember = ({ name, role, image, twitterIcon, instagramIcon, linkedinIcon }) => (
     <div className="team-member">
-      <img src={`/images/${image}`} alt={`${name}`} />
+      <img src={`${process.env.PUBLIC_URL}/images/${image}`} alt={`${name}`} />
       <h3>{name}</h3>
       <p>{role}</p>
       <div className="social-icons">

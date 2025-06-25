@@ -13,10 +13,10 @@ export default function ProductDetails() {
   const [selectedColor, setSelectedColor] = useState(null);
   const [quantity, setQuantity] = useState(1);
 
-  const images =
-    Array.isArray(product?.images) && product.images1.length > 0
-      ? product.images.slice(0, 4)
-      : [product?.image, product?.images1, product?.image, product?.images1];
+const images =
+  Array.isArray(product?.images) && product.images.length > 0
+    ? product.images.slice(0, 4)
+    : [product?.image, product?.image1, product?.image, product?.image3];
 
   const [currentImageIndex,setCurrentImageIndex] = useState(0);
 
@@ -73,7 +73,7 @@ export default function ProductDetails() {
               <AnimatePresence mode="wait">
                 <motion.img
                   key={mainImage}
-                  src={`/images/${mainImage}` || "/fallback-image.jpg"}
+                  src={`${process.env.PUBLIC_URL}/images/${mainImage}` || "/fallback-image.jpg"}
                   alt={product.title || "Product Image"}
                   className="large-img"
                   initial={{ opacity: 0, x: 50 }}
@@ -88,7 +88,7 @@ export default function ProductDetails() {
               {images.map((image, index) => (
                 <img
                   key={index}
-                  src={`/images/${image}` || "/fallback-image.jpg"}
+                  src={`${process.env.PUBLIC_URL}/images/${image}` || "/fallback-image.jpg"}
                   className="small-img"
                   alt={`Thumbnail ${index + 1}`}
                   style={{

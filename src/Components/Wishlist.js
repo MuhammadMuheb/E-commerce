@@ -39,7 +39,7 @@ export default function Wishlist() {
             <div className="wishlist-item-actions">
               {item.discount && <span className="discount">-{item.discount}%</span>}
               <img
-                src={`/images/${item.image}` || ""}
+                src={`${process.env.PUBLIC_URL}/images/${item.image}` || ""}
                 alt={item.title}
                 className="item-image"
                 onClick={() =>
@@ -73,7 +73,7 @@ export default function Wishlist() {
             <div className="wishlist-item-actions">
               {item.discount && <span className="discount">-{item.discount}</span>}
               <img
-                src={`/images/${item.image}` || ""}
+                src={`${process.env.PUBLIC_URL}/images/${item.image}` || ""}
                 alt={item.title}
                 className="item-image item-img"
                 onClick={() =>

@@ -53,7 +53,7 @@ export default function AddItemCart() {
                         <td>
                           <div className="d-flex">
                             <img
-                              src={`/images/${item.image}` || ""}
+                              src={`${process.env.PUBLIC_URL}/images/${item.image}` || ""}
                               className="img-thumbnail"
                               style={{ height: "4rem", width: "4rem" }}
                               alt="Product"

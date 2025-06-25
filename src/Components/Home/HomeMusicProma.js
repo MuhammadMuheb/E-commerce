@@ -79,7 +79,7 @@ export default function MusicPromoCard() {
             </div>
             <div className="promo-image">
                 <img 
-                    src={`/images/${musicpromocard[0]?.image || ""}`} 
+                    src={`${process.env.PUBLIC_URL}/images/${musicpromocard[0]?.image || ""}`}
                     alt={musicpromocard[0]?.title || "Product"} 
                     onClick={() => navigate(`/product/${musicpromocard[0]?.id}`, { state: { product: musicpromocard[0] } })}
                 />

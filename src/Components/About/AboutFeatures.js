@@ -18,7 +18,7 @@ export default function AboutFeatures() {
       <section className="features">
         {features.map((feature) => (
           <div key={feature.id}>
-            <img src={`/images/${feature.image}` || ""} alt={feature.title} />
+            <img src={`${process.env.PUBLIC_URL}/images/${feature.image}` || ""} alt={feature.title} />
             <br />
             <h1>{feature.title}</h1>
             <p>{feature.description}</p>

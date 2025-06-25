@@ -62,7 +62,7 @@ export default function BestSellingProducts({ title }) {
                   <button className="likebtn">♥</button>
                   <button className="eyebtn">👁</button>
                 </div>
-                <img src={`/images/${product.image}` || ""} alt={product.title} />
+                <img src={`${process.env.PUBLIC_URL}/images/${product.image}`} alt={product.title} />
               </div>
               <h3>{product.title}</h3>
               <p className="price">

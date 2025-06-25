@@ -42,7 +42,7 @@ export default function WomenFashion() {
             {womenfashion.map((product) => (
               <div key={product.id} className="product-card">
                 <img 
-                src={`/images/${product.image}` || ""} 
+                src={`${process.env.PUBLIC_URL}/images/${product.image}`} 
                 alt={product.title} 
                 className="product-image"
                  onClick={() =>

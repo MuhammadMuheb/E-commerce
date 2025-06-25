@@ -114,7 +114,7 @@ export default function FlashSales() {
               <div key={item.id} className="card explorecard">
                 {item.isNew && <span className="new">New</span>}
                 <img
-                  src={`/images/${item.image}` || ""}
+                  src={`${process.env.PUBLIC_URL}/images/${item.image}` || ""}
                   alt={item.title}
                   onClick={() =>
                     navigate(`/product/${item.id}`, { state: { product: item } })

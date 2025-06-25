@@ -7,11 +7,10 @@ export default function BuyNow() {
   const location = useLocation();
   const product = location.state?.product;
 
-
   const [cartData, setCartData] = useState({ items: [], total: 0 });
 
   useEffect(() => {
-    const savedCartData = JSON.parse(localStorage.getItem( cartData ));
+    const savedCartData = JSON.parse(localStorage.getItem("cartData"));
     if (savedCartData) {
       const calculatedTotal = savedCartData.items.reduce((acc, item) => {
         return acc + parseFloat(item.price) * item.quantity;
@@ -23,7 +22,6 @@ export default function BuyNow() {
     }
   }, []);
 
- 
   if (!product) {
     return <p>Product not found!</p>;
   }
@@ -39,13 +37,27 @@ export default function BuyNow() {
           <ul>
             <li className="order-item">
               <span className="orderitemimg">
-                <img src={`/images/${product.image}` || ""} alt={product.title} />
+                <img
+                  src={
+                    product.image
+                      ? `${process.env.PUBLIC_URL}/images/${product.image}`
+                      : `${process.env.PUBLIC_URL}/images/default.jpg`
+                  }
+                  alt={product.title}
+                  onError={(e) => {
+                    e.target.src = `${process.env.PUBLIC_URL}/images/default.jpg`;
+                  }}
+                />
               </span>
               <span className="orderitemtitle">{product.title}</span>
               <span className="orderitemprice">
-                ${isNaN(parseFloat(product.price)) ? 0.00 : parseFloat(product.price).toFixed(2)}
+                $
+                {isNaN(parseFloat(product.price))
+                  ? "0.00"
+                  : parseFloat(product.price).toFixed(2)}
               </span>
             </li>
+
             <li className="subtotal">
               <span>Subtotal</span>
               <span>${parseFloat(product.price).toFixed(2)}</span>
@@ -71,7 +83,12 @@ export default function BuyNow() {
             </div>
             <div className="radio-wrapper">
               <label className="radio-button">
-                <input id="option2" name="paymentMethod" type="radio" value="Cash on delivery" />
+                <input
+                  id="option2"
+                  name="paymentMethod"
+                  type="radio"
+                  value="Cash on delivery"
+                />
                 <span className="radio-checkmark"></span>
                 <span className="radio-label">Cash on delivery</span>
               </label>
@@ -80,7 +97,9 @@ export default function BuyNow() {
 
           {/* Place Order */}
           <form>
-            <button type="submit" className="place-order">Place Order</button>
+            <button type="submit" className="place-order">
+              Place Order
+            </button>
           </form>
         </div>
       </div>
